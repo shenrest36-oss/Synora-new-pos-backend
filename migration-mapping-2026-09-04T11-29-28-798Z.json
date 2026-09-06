@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-09-04T11:29:28.798Z",
+  "backupFile": "migration-backup-2026-09-04T11-14-09-697Z.json",
+  "entries": [
+    {
+      "majorId": 1,
+      "majorName": "Appetizers",
+      "masterId": 5,
+      "familyId": 6
+    },
+    {
+      "majorId": 2,
+      "majorName": "RIce",
+      "masterId": 7,
+      "familyId": 8
+    },
+    {
+      "majorId": 3,
+      "majorName": "koththu",
+      "masterId": 9,
+      "familyId": 10
+    },
+    {
+      "majorId": 4,
+      "majorName": "Beverage",
+      "masterId": 11,
+      "familyId": 12
+    }
+  ],
+  "itemMappings": [
+    {
+      "itemId": 1,
+      "itemName": "Chicken Rice",
+      "originalCategoryId": 2,
+      "newCategoryId": 8
+    },
+    {
+      "itemId": 2,
+      "itemName": "Egg Fried Rice",
+      "originalCategoryId": 2,
+      "newCategoryId": 8
+    },
+    {
+      "itemId": 3,
+      "itemName": "chicken koththu",
+      "originalCategoryId": 3,
+      "newCategoryId": 10
+    }
+  ]
+}

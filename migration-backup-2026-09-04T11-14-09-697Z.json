@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-09-04T11-14-09-697Z",
+  "majors": [
+    {
+      "id": 1,
+      "name": "Appetizers"
+    },
+    {
+      "id": 2,
+      "name": "RIce"
+    },
+    {
+      "id": 3,
+      "name": "koththu"
+    },
+    {
+      "id": 4,
+      "name": "Beverage"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Chicken Rice",
+      "categoryId": 2
+    },
+    {
+      "id": 2,
+      "name": "Egg Fried Rice",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "name": "chicken koththu",
+      "categoryId": 3
+    }
+  ]
+}
