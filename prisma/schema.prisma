@@ -228,6 +228,14 @@ enum PosOrderStatus {
   voided        // cancelled before billing
 }
 
+enum PosKitchenStatus {
+  new
+  preparing
+  ready
+  served
+  cancelled
+}
+
 model PosOrder {
   id            Int            @id @default(autoincrement())
   outletId      Int            @map("outlet_id")
@@ -241,6 +249,12 @@ model PosOrder {
   guestName     String?        @map("guest_name") @db.VarChar(150)
   roomNumber    String?        @map("room_number") @db.VarChar(10)
   status        PosOrderStatus @default(open)
+  kitchenStatus PosKitchenStatus @default(new) @map("kitchen_status")
+  startedAt     DateTime?      @map("started_at") @db.Timestamp(0)
+  readyAt       DateTime?      @map("ready_at") @db.Timestamp(0)
+  servedAt      DateTime?      @map("served_at") @db.Timestamp(0)
+  cancelledAt   DateTime?      @map("cancelled_at") @db.Timestamp(0)
+  cancelledReason String?      @map("cancelled_reason") @db.VarChar(255)
   remark        String?        @db.VarChar(255)
   openedAt      DateTime       @default(now()) @map("opened_at") @db.Timestamp(0)
   closedAt      DateTime?      @map("closed_at") @db.Timestamp(0)

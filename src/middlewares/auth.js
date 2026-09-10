@@ -6,10 +6,13 @@ const jwt = require('jsonwebtoken');
  */
 function authenticate(req, res, next) {
   const header = req.headers.authorization;
-  if (!header || !header.startsWith('Bearer ')) {
+  const queryToken = req.query && req.query.token ? String(req.query.token) : '';
+  const token = header && header.startsWith('Bearer ') ? header.slice(7) : queryToken;
+
+  if (!token) {
     return res.status(401).json({ error: 'No token provided' });
   }
-  const token = header.slice(7);
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; // { id, username, role, roleId }

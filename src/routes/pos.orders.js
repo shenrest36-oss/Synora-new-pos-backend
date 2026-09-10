@@ -4,6 +4,7 @@ const prisma = require('../prismaClient');
 const { authenticate } = require('../middlewares/auth');
 const { calculateItemPriceBreakdown, calculateItemTaxes } = require('../services/taxService');
 const { triggerKotPrint } = require('../services/kotPrintService');
+const { broadcastKitchenOrder, fetchKitchenOrderSnapshot } = require('../services/kitchenStream');
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 
@@ -74,6 +75,9 @@ router.post('/', authenticate, async (req, res) => {
         data: { status: 'occupied' },
       }),
     ]);
+
+    const snapshot = await fetchKitchenOrderSnapshot(order.id);
+    broadcastKitchenOrder(snapshot);
 
     res.status(201).json(order);
   } catch (err) {
